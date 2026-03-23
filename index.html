@@ -293,11 +293,14 @@
     #end-donate .ni-btn:hover { background: #ffd700; color: #000; }
     .overtime-btn:disabled { opacity: 0.32; cursor: not-allowed; background: #0a0f0a; border-color: #253525; color: #3a5a3a; }
     .overtime-btn:disabled:hover { background: #0a0f0a; color: #3a5a3a; }
-    #mini-exit-bar { text-align: center; padding: 6px 0 2px; }
-    #mini-exit-btn { background: #1a0d0d; border: 1px solid #c0392b; color: #e74c3c; padding: 5px 16px;
-      cursor: pointer; font-family: 'Courier New', monospace; font-size: 0.7em; letter-spacing: 1px;
+    #mini-exit-bar { text-align: right; padding: 0 0 8px; border-bottom: 1px solid #2a1a1a; margin-bottom: 10px; }
+    #mini-exit-btn { background: #1a0d0d; border: 1px solid #c0392b; color: #e74c3c; padding: 5px 14px;
+      cursor: pointer; font-family: 'Courier New', monospace; font-size: 0.68em; letter-spacing: 1px;
       transition: background 0.15s, color 0.15s; }
     #mini-exit-btn:hover { background: #c0392b; color: #fff; }
+
+    /* Extra bottom padding on dpad so nothing clickable sits directly below it */
+    #mini-dpad { padding-bottom: 10px; }
 
     /* CHANCE RESULT BOX */
     .oc-result-box {
@@ -778,6 +781,9 @@
   <!-- ===== RESTAURANT MINI-GAME OVERLAY ===== -->
   <div id="minigame-overlay">
     <div id="minigame-box">
+      <div id="mini-exit-bar">
+        <button id="mini-exit-btn" onclick="miniExitEarly()">🚪 Leave Shift Early</button>
+      </div>
       <div class="mini-header">
         <div class="mini-title">🍽&nbsp; OVERTIME SHIFT — Serve the Tables!</div>
         <div class="mini-subtitle">← → to move &nbsp;·&nbsp; Catch dishes <span class="mini-dish">🍽</span> +$10 each &nbsp;·&nbsp; Dropped plates cost <strong>$10</strong> &nbsp;·&nbsp; Keep what you earn — <strong>60 seconds</strong></div>
@@ -786,9 +792,6 @@
       <div id="mini-dpad">
         <button class="mini-dpad-btn" id="mini-btn-left"  onmousedown="_miniMoveLeft()"  ontouchstart="event.preventDefault();_miniMoveLeft()">&#9664; LEFT</button>
         <button class="mini-dpad-btn" id="mini-btn-right" onmousedown="_miniMoveRight()" ontouchstart="event.preventDefault();_miniMoveRight()">RIGHT &#9654;</button>
-      </div>
-      <div id="mini-exit-bar">
-        <button id="mini-exit-btn" onclick="miniExitEarly()">🚪 Leave Shift Early — take the +10 stress &amp; keep what you earned</button>
       </div>
       <div id="mini-result">
         <div id="mini-result-text"></div>
